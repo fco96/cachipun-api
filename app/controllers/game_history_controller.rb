@@ -1,6 +1,6 @@
 class GameHistoryController < ApplicationController
   def index
-    games = GameHistory.all
+    games = GameHistory.all.order(created_at: :desc)
     render json: games, status: :ok, each_serializer: GameHistorySerializer
   end
 
